@@ -1,0 +1,37 @@
+@import 'constant';
+
+.excel-grid{
+    overflow: hidden;
+    padding-top: 25px;
+    position: relative;
+    .grid-table{
+        border-spacing: 0;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        .grid-row {
+            display: table-row;
+            &.header{
+                .grid-cell{
+                    background-color: $HEADER_COLOR;
+                    text-align: center;
+                }
+            }
+        }
+        .grid-cell {
+            display: table-cell;
+            background-color: $CELL_COLOR;
+            border-bottom: 1px solid $BORDER_COLOR;
+            border-right: 1px solid $BORDER_COLOR;
+            padding: 3px;
+        }
+        &.fixed{
+            position: absolute;
+            top: 0;
+        }   
+    }
+    .scroller{
+        overflow: auto;
+        height: 100%;
+    }
+}

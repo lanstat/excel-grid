@@ -1,0 +1,28 @@
+{
+  "name": "excel-grid",
+  "version": "0.0.1",
+  "description": "JS plugin that enable grid like Excel",
+  "main": "excelGrid.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass styles/excelGrid.scss dist/excelGrid.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanstat/excel-grid.git"
+  },
+  "keywords": [
+    "excel",
+    "grid",
+    "js"
+  ],
+  "author": "Juan Javier Garson Aparicio <lanstat@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lanstat/excel-grid/issues"
+  },
+  "homepage": "https://github.com/lanstat/excel-grid#readme"
+}

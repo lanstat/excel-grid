@@ -1,0 +1,35 @@
+.excel-grid {
+  overflow: hidden;
+  padding-top: 25px;
+  position: relative;
+}
+.excel-grid .grid-table {
+  border-spacing: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.excel-grid .grid-table .grid-row {
+  display: table-row;
+}
+.excel-grid .grid-table .grid-row.header .grid-cell {
+  background-color: #e6e6e6;
+  text-align: center;
+}
+.excel-grid .grid-table .grid-cell {
+  display: table-cell;
+  background-color: #ffffff;
+  border-bottom: 1px solid #cbcbcb;
+  border-right: 1px solid #cbcbcb;
+  padding: 3px;
+}
+.excel-grid .grid-table.fixed {
+  position: absolute;
+  top: 0;
+}
+.excel-grid .scroller {
+  overflow: auto;
+  height: 100%;
+}
+
+/*# sourceMappingURL=dist/excelGrid.css.map */
