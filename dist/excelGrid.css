@@ -8,6 +8,19 @@
   display: table;
   table-layout: fixed;
   width: 100%;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+         supported by Chrome and Opera */
 }
 .excel-grid .grid-table .grid-row {
   display: table-row;
@@ -15,6 +28,10 @@
 .excel-grid .grid-table .grid-row.header .grid-cell {
   background-color: #e6e6e6;
   text-align: center;
+}
+.excel-grid .grid-table .grid-row.guide .grid-cell {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .excel-grid .grid-table .grid-cell {
   display: table-cell;

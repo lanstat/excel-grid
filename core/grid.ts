@@ -1,6 +1,6 @@
 module ExcelGrid {
     export class Grid extends Element {
-        private headerRow: HeaderRow;
+        private headerRow: GuideRow;
         private rows: Row[];
 
         constructor(count: number) {
@@ -8,7 +8,7 @@ module ExcelGrid {
 
             this.element.className = 'grid-table';
 
-            this.headerRow = new HeaderRow(count);
+            this.headerRow = new GuideRow(count);
             //this.headerRow.
             this.element.appendChild(this.headerRow.element);
 

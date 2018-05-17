@@ -4,6 +4,7 @@ module ExcelGrid{
         
         private grid: Grid;
         private headerGrid: HeaderGrid;
+        private scroller: HTMLElement;
 
         private columnCount: number;
 
@@ -15,12 +16,22 @@ module ExcelGrid{
             this.headerGrid = new HeaderGrid(this.columnCount);
             this.root.appendChild(this.headerGrid.element);
 
-            let scroller = document.createElement('div');
-            scroller.className = 'scroller';
+            this.scroller = document.createElement('div');
+            this.scroller.className = 'scroller';
             this.grid = new Grid(this.columnCount);
 
-            scroller.appendChild(this.grid.element);
-            this.root.appendChild(scroller);
+            this.scroller.appendChild(this.grid.element);
+            this.root.appendChild(this.scroller);
+
+            this.bindScroller();
+        }
+
+        private bindScroller(){
+            let $this = this;
+
+            this.scroller.onscroll = function(evt){
+                $this.headerGrid.element.style.left = '-' + evt.srcElement.scrollLeft + 'px';
+            }
         }
     }
 }

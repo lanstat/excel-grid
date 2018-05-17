@@ -9,12 +9,25 @@
         display: table;
         table-layout: fixed;
         width: 100%;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
         .grid-row {
             display: table-row;
             &.header{
                 .grid-cell{
                     background-color: $HEADER_COLOR;
                     text-align: center;
+                }
+            }
+            &.guide{
+                .grid-cell{
+                    padding-top: 0;
+                    padding-bottom: 0;
                 }
             }
         }

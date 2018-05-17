@@ -5,6 +5,7 @@ var classes = [
 	'../core/element.js',
 	'../core/headerGrid.js',
 	'../core/grid.js',
+	'../core/guideRow.js',
 	'../core/headerRow.js',
 	'../core/row.js',
 	'../core/cell.js',
