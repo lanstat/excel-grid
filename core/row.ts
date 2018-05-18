@@ -2,7 +2,7 @@ module ExcelGrid {
     export class Row extends Element {
         private cells: Cell[];
 
-        constructor(count: number, index: number) {
+        constructor(count: number) {
             super(document.createElement('div'));
 
             this.element.className = 'grid-row';

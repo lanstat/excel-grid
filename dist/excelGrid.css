@@ -2,6 +2,8 @@
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
+  position: relative;
+  padding-left: 37px;
 }
 .excel-grid .grid-table {
   border-spacing: 0;
@@ -32,6 +34,11 @@
   background-color: #e6e6e6;
   text-align: center;
 }
+.excel-grid .grid-table .grid-row.header .grid-cell.selected {
+  background-color: #d2d2d2;
+  color: #217346;
+  border-bottom-color: #217346;
+}
 .excel-grid .grid-table .grid-row.guide .grid-cell {
   padding-top: 0;
   padding-bottom: 0;
@@ -43,21 +50,96 @@
   border-right: 1px solid #cbcbcb;
   padding: 3px;
   vertical-align: bottom;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .excel-grid .grid-table .grid-cell.editing-cell {
   padding: 0;
 }
 .excel-grid .grid-table .grid-cell input {
   border-radius: 0;
+  outline: none;
+}
+.excel-grid .grid-table .grid-cell.selected {
+  background-color: #dadada;
+}
+.excel-grid .grid-table.header-column {
+  position: absolute;
+  width: 30px;
+  left: 0;
+  padding-top: 1px;
+}
+.excel-grid .grid-table.header-column .grid-cell.selected {
+  background-color: #d2d2d2;
+  color: #217346;
+  border-right-color: #217346;
+  border-bottom-color: #cbcbcb !important;
 }
 .excel-grid .scroller {
   overflow: auto;
   height: 100%;
 }
-.excel-grid .init-cell {
-  background-color: #e6e6e6 !important;
-  text-align: center;
-  width: 30px;
+.excel-grid .diagonal-cell {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #e6e6e6;
+  border-bottom: 1px solid #cbcbcb;
+  border-right: 1px solid #cbcbcb;
+  padding: 3px;
+}
+.excel-grid .selected-box {
+  position: absolute;
+  top: 101px;
+  left: 143px;
+  width: 107px;
+  height: 101px;
+}
+.excel-grid .selected-box .top-border {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #217346;
+  top: 0;
+  left: 0;
+  cursor: move;
+}
+.excel-grid .selected-box .left-border {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: #217346;
+  top: 0;
+  left: 0;
+  cursor: move;
+}
+.excel-grid .selected-box .bottom-border {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #217346;
+  bottom: 0;
+  left: 0;
+  cursor: move;
+}
+.excel-grid .selected-box .right-border {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: #217346;
+  top: 0;
+  right: 0;
+  cursor: move;
+}
+.excel-grid .selected-box .box-selector {
+  bottom: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  cursor: move;
+  background-color: #217346;
 }
 
 /*# sourceMappingURL=dist/excelGrid.css.map */

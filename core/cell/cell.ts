@@ -20,13 +20,5 @@ module ExcelGrid {
         public getText(): string{
             return this.element.innerText;
         }
-
-        public setWidth(width: number){
-            this.element.style.width = width + 'px';
-        }
-
-        public getWidth(): number {
-            return parseInt(this.element.style.width.replace('px', ''));
-        }
     }
 }

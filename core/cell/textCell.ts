@@ -12,9 +12,26 @@ module ExcelGrid{
 
         private bindInput(){
             let $this = this;
+            let disabled = false;
 
-            this.input.onblur = function(){
-                $this.notEditing($this.input.value);
+            let lockEvent = function(){
+                if (!disabled){
+                    disabled = true;
+                    $this.notEditing($this.input.value);
+                    setTimeout(function(){
+                        disabled = false;
+                    }, 100);
+                }                
+            };
+
+            this.input.onblur = function(evt){
+                lockEvent();
+            }
+
+            this.input.onkeypress = function(evt){
+                if (evt.keyCode == 13){
+                    lockEvent();
+                }
             }
         }
 

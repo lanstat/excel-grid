@@ -4,6 +4,8 @@
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
+    position: relative;
+    padding-left: 37px;
     .grid-table{
         border-spacing: 0;
         display: table;
@@ -23,6 +25,11 @@
                 .grid-cell{
                     background-color: $HEADER_COLOR;
                     text-align: center;
+                    &.selected{
+                        background-color: $SELECT_HEADER_COLOR;
+                        color: $SELECT_BORDER_COLOR;
+                        border-bottom-color: $SELECT_BORDER_COLOR;
+                    }
                 }
             }
             &.guide{
@@ -39,11 +46,31 @@
             border-right: 1px solid $BORDER_COLOR;
             padding: 3px;
             vertical-align: bottom;
+            white-space: nowrap;
+            overflow: hidden;
             &.editing-cell{
                 padding: 0;
             }
             input{
                 border-radius: 0;
+                outline: none;
+            }
+            &.selected{
+                background-color: $SELECT_CELL_COLOR;
+            }
+        }
+        &.header-column{
+            position: absolute;
+            width: 30px;
+            left: 0;
+            padding-top: 1px;
+            .grid-cell {
+                &.selected{
+                    background-color: $SELECT_HEADER_COLOR;
+                    color: $SELECT_BORDER_COLOR;
+                    border-right-color: $SELECT_BORDER_COLOR;
+                    border-bottom-color: $BORDER_COLOR !important;
+                }
             }
         }
     }
@@ -51,9 +78,66 @@
         overflow: auto;
         height: 100%;
     }
-    .init-cell{
-        background-color: $HEADER_COLOR !important;
-        text-align: center;
-        width: 30px;
+    .diagonal-cell{
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background-color: $HEADER_COLOR;
+        border-bottom: 1px solid $BORDER_COLOR;
+        border-right: 1px solid $BORDER_COLOR;
+        padding: 3px;
+    }
+    .selected-box{
+        position: absolute;
+        top: 101px;
+        left: 143px;
+        width: 107px;
+        height: 101px;
+        .top-border{
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: $SELECT_BORDER_COLOR;
+            top: 0;
+            left: 0;
+            cursor: move;
+        }
+        .left-border{
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: $SELECT_BORDER_COLOR;
+            top: 0;
+            left: 0;
+            cursor: move;
+        }
+        .bottom-border{
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: $SELECT_BORDER_COLOR;
+            bottom: 0;
+            left: 0;
+            cursor: move;
+        }
+        .right-border{
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: $SELECT_BORDER_COLOR;
+            top: 0;
+            right: 0;
+            cursor: move;
+        }
+        .box-selector{
+            bottom: 0;
+            right: 0;
+            width: 4px;
+            height: 4px;
+            position: absolute;
+            cursor: move;
+            background-color: $SELECT_BORDER_COLOR;
+        }
     }
 }

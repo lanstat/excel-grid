@@ -4,14 +4,17 @@ var classes = [
 	'../core/excelGrid.js',
 	'../core/element.js',
 	'../core/header/headerGrid.js',
+	'../core/header/headerColumn.js',
 	'../core/grid.js',
 	'../core/guide/guideRow.js',
 	'../core/header/headerRow.js',
 	'../core/row.js',
 	'../core/cell/cell.js',
+	'../core/header/diagonalCell.js',
 	'../core/cell/dataCell.js',
 	'../core/header/headerCell.js',
-	'../core/cell/textCell.js'
+	'../core/cell/textCell.js',
+	'../core/selectContainer.js'
 ];
 
 var styles = [
