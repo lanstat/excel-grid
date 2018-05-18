@@ -30,7 +30,7 @@ module ExcelGrid{
             let $this = this;
 
             this.scroller.onscroll = function(evt){
-                $this.headerGrid.element.style.left = '-' + evt.srcElement.scrollLeft + 'px';
+                $this.headerGrid.element.style.marginLeft = '-' + evt.srcElement.scrollLeft + 'px';
             }
         }
     }

@@ -61,4 +61,6 @@ typings/
 .next
 
 core/*.js
+core/*/*.js
+core/*/*.map
 core/*.map

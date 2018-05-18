@@ -3,14 +3,15 @@
 var classes = [
 	'../core/excelGrid.js',
 	'../core/element.js',
-	'../core/headerGrid.js',
+	'../core/header/headerGrid.js',
 	'../core/grid.js',
-	'../core/guideRow.js',
-	'../core/headerRow.js',
+	'../core/guide/guideRow.js',
+	'../core/header/headerRow.js',
 	'../core/row.js',
-	'../core/cell.js',
-	'../core/headerCell.js',
-	'../core/textCell.js'
+	'../core/cell/cell.js',
+	'../core/cell/dataCell.js',
+	'../core/header/headerCell.js',
+	'../core/cell/textCell.js'
 ];
 
 var styles = [

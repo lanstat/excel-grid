@@ -2,8 +2,8 @@
 
 .excel-grid{
     overflow: hidden;
-    padding-top: 25px;
-    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
     .grid-table{
         border-spacing: 0;
         display: table;
@@ -19,6 +19,7 @@
         .grid-row {
             display: table-row;
             &.header{
+                height: 25px;
                 .grid-cell{
                     background-color: $HEADER_COLOR;
                     text-align: center;
@@ -37,14 +38,22 @@
             border-bottom: 1px solid $BORDER_COLOR;
             border-right: 1px solid $BORDER_COLOR;
             padding: 3px;
+            vertical-align: bottom;
+            &.editing-cell{
+                padding: 0;
+            }
+            input{
+                border-radius: 0;
+            }
         }
-        &.fixed{
-            position: absolute;
-            top: 0;
-        }   
     }
     .scroller{
         overflow: auto;
         height: 100%;
+    }
+    .init-cell{
+        background-color: $HEADER_COLOR !important;
+        text-align: center;
+        width: 30px;
     }
 }

@@ -13,7 +13,7 @@ module ExcelGrid {
             this.element.appendChild(this.headerRow.element);
 
             for (let i = 0; i < 100; i++) {
-                let tmp: Row = new Row(count);
+                let tmp: Row = new Row(count, i + 1);
                 this.element.appendChild(tmp.element);
             }
         }
