@@ -13,11 +13,11 @@ module ExcelGrid {
             let $this = this;
         }
 
-        public setText(text: string){
+        set text(text: string){
             this.element.innerText = text;
         }
 
-        public getText(): string{
+        get text(): string{
             return this.element.innerText;
         }
     }

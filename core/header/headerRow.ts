@@ -1,16 +1,13 @@
 module ExcelGrid {
-    export class HeaderRow extends Element {
-        private cells: Cell[];
+    export class HeaderRow extends Row {
         private chars: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
         constructor(count: number,
                     values: string[] = null,
                     isColumnRow: boolean = false) {
-            super(document.createElement('div'));
+            super(count);
 
-            this.element.className = 'grid-row header';
-
-            this.cells = [];
+            this.element.classList.add('header');
 
             let prefix: string = '';
             let pivot: number = -1;

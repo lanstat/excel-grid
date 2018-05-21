@@ -1,5 +1,5 @@
 module ExcelGrid {
-    export class Grid extends Element {
+    export class DataGrid extends Element {
         private headerRow: GuideRow;
         private rows: Row[];
 
@@ -9,11 +9,10 @@ module ExcelGrid {
             this.element.className = 'grid-table';
 
             this.headerRow = new GuideRow(count);
-            //this.headerRow.
             this.element.appendChild(this.headerRow.element);
 
             for (let i = 0; i < 100; i++) {
-                let tmp: Row = new Row(count);
+                let tmp: Row = new DataRow(count);
                 this.element.appendChild(tmp.element);
             }
         }

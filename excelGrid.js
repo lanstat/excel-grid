@@ -2,18 +2,22 @@
 
 var classes = [
 	'../core/excelGrid.js',
+	'../core/event.js',
 	'../core/element.js',
-	'../core/header/headerGrid.js',
-	'../core/header/headerColumn.js',
+	'../core/row.js',
+	'../core/cell.js',
+	'../core/globals.js',
 	'../core/grid.js',
 	'../core/guide/guideRow.js',
+	'../core/header/headerGrid.js',
+	'../core/header/headerColumn.js',
 	'../core/header/headerRow.js',
-	'../core/row.js',
-	'../core/cell/cell.js',
 	'../core/header/diagonalCell.js',
-	'../core/cell/dataCell.js',
 	'../core/header/headerCell.js',
-	'../core/cell/textCell.js',
+	'../core/data/dataCell.js',
+	'../core/data/dataGrid.js',
+	'../core/data/dataRow.js',
+	'../core/data/textCell.js',
 	'../core/selectContainer.js'
 ];
 

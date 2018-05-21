@@ -23,6 +23,10 @@ module ExcelGrid {
 
                 editable.focus();
             }
+
+            this.element.addEventListener('click', function(evt){
+                Globals.SelectContainer.showAtCell($this);
+            });
         }
 
         public notEditing(html: string) {

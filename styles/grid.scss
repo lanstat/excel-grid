@@ -6,6 +6,7 @@
     font-size: 13px;
     position: relative;
     padding-left: 37px;
+    padding-top: 25px;
     .grid-table{
         border-spacing: 0;
         display: table;
@@ -64,6 +65,7 @@
             width: 30px;
             left: 0;
             padding-top: 1px;
+            z-index: 10;
             .grid-cell {
                 &.selected{
                     background-color: $SELECT_HEADER_COLOR;
@@ -73,6 +75,11 @@
                 }
             }
         }
+        &.fixed{
+            position: absolute;
+            top: 0;
+            z-index: 10;
+        }
     }
     .scroller{
         overflow: auto;
@@ -80,7 +87,7 @@
     }
     .diagonal-cell{
         position: absolute;
-        z-index: 10;
+        z-index: 12;
         top: 0;
         left: 0;
         background-color: $HEADER_COLOR;
@@ -90,10 +97,11 @@
     }
     .selected-box{
         position: absolute;
-        top: 101px;
-        left: 143px;
-        width: 107px;
-        height: 101px;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        display: none;
         .top-border{
             position: absolute;
             width: 100%;

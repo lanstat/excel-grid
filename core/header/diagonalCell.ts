@@ -5,8 +5,8 @@ module ExcelGrid{
 
             this.element.className = 'diagonal-cell';
 
-            this.setWidth(30);
-            this.setHeight(18);
+            this.width = 30;
+            this.height = 18;
         }
     }
 }

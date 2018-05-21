@@ -15,9 +15,11 @@ module ExcelGrid {
                     <div class="box-selector"></div>
                 </div>
             `;
+
+            this.bind()
         }
 
-        public bind(excelGrid: ExcelGrid){
+        private bind(){
             let $this = this;
 
             let topBorder: HTMLElement = <HTMLElement>this.element.getElementsByClassName('top-border')[0];
@@ -38,10 +40,19 @@ module ExcelGrid {
                 console.log('bot');
             }
 
-            excelGrid.scroller.addEventListener('scroll', function(evt){
+            Globals.DataScroller.addEventListener('scroll', function(evt){
                 let top: number = $this.element.offsetTop;
                 $this.element.style.top = (101 - evt.srcElement.scrollTop) + 'px';
             });
+        }
+
+        public showAtCell(cell: DataCell){
+            this.top = cell.offsetTop - Globals.DataScroller.scrollTop - 1;
+            this.left = cell.offsetLeft - Globals.DataScroller.scrollLeft - 1;
+            this.width = cell.offsetWidth + 1;
+            this.height = cell.offsetHeight + 1;
+
+            this.show();
         }
     }
 }

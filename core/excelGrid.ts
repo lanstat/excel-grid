@@ -1,11 +1,9 @@
 module ExcelGrid{
     export class ExcelGrid{
         private root: HTMLDivElement;
-        
-        private grid: Grid;
+
         private headerGrid: HeaderGrid;
         private headerColumn: HeaderColumn;
-        public scroller: HTMLElement;
         private diagonalCell: DiagonalCell;
 
         private columnCount: number;
@@ -24,31 +22,27 @@ module ExcelGrid{
             this.headerGrid = new HeaderGrid(this.columnCount);
             this.root.appendChild(this.headerGrid.element);
 
-            this.scroller = document.createElement('div');
-            this.scroller.className = 'scroller';
-            this.grid = new Grid(this.columnCount);
+            Globals.DataScroller = document.createElement('div');
+            Globals.DataScroller.className = 'scroller';
 
-            this.scroller.appendChild(this.grid.element);
-            this.root.appendChild(this.scroller);
+            Globals.DataGrid = new DataGrid(this.columnCount);
 
-            this.createElements();
+            Globals.DataScroller.appendChild(Globals.DataGrid.element);
+            this.root.appendChild(Globals.DataScroller);
+
+            Globals.SelectContainer = new SelectContainer();
+            this.root.appendChild(Globals.SelectContainer.element);
 
             this.bindScroller();
-        }
-
-        private createElements(){
-            let tmp = new SelectContainer();
-            this.root.appendChild(tmp.element);
-            tmp.bind(this);
         }
 
         private bindScroller(){
             let $this = this;
 
-            this.scroller.onscroll = function(evt){
+            Globals.DataScroller.addEventListener('scroll', function(evt){
                 $this.headerGrid.element.style.marginLeft = '-' + evt.srcElement.scrollLeft + 'px';
                 $this.headerColumn.column.style.top = '-' + evt.srcElement.scrollTop + 'px';
-            }
+            });
         }
     }
 }
