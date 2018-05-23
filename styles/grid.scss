@@ -1,9 +1,10 @@
 @import 'constant';
+@import 'mixins';
 
 .excel-grid{
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     position: relative;
     padding-left: 37px;
     padding-top: 25px;
@@ -26,10 +27,14 @@
                 .grid-cell{
                     background-color: $HEADER_COLOR;
                     text-align: center;
+                    cursor: url('../assets/d-arrow.png') 0 15, auto;
                     &.selected{
                         background-color: $SELECT_HEADER_COLOR;
                         color: $SELECT_BORDER_COLOR;
                         border-bottom-color: $SELECT_BORDER_COLOR;
+                    }
+                    &:hover{
+                        background-color: $HEADER_HOVER_COLOR;
                     }
                 }
             }
@@ -49,13 +54,7 @@
             vertical-align: bottom;
             white-space: nowrap;
             overflow: hidden;
-            &.editing-cell{
-                padding: 0;
-            }
-            input{
-                border-radius: 0;
-                outline: none;
-            }
+            cursor: url('../assets/crosshair.png') 7 7, auto;
             &.selected{
                 background-color: $SELECT_CELL_COLOR;
             }
@@ -65,8 +64,9 @@
             width: 30px;
             left: 0;
             padding-top: 1px;
-            z-index: 10;
+            z-index: 100;
             .grid-cell {
+                cursor: url('../assets/e-arrow.png') 15 0, auto !important;
                 &.selected{
                     background-color: $SELECT_HEADER_COLOR;
                     color: $SELECT_BORDER_COLOR;
@@ -78,7 +78,7 @@
         &.fixed{
             position: absolute;
             top: 0;
-            z-index: 10;
+            z-index: 100;
         }
     }
     .scroller{
@@ -87,7 +87,7 @@
     }
     .diagonal-cell{
         position: absolute;
-        z-index: 12;
+        z-index: 102;
         top: 0;
         left: 0;
         background-color: $HEADER_COLOR;
@@ -102,50 +102,51 @@
         width: 0;
         height: 0;
         display: none;
+        cursor: url('../assets/crosshair.png') 7 7, auto;
         .top-border{
-            position: absolute;
             width: 100%;
             height: 2px;
-            background-color: $SELECT_BORDER_COLOR;
             top: 0;
             left: 0;
-            cursor: move;
+            @include select-box-border;
         }
         .left-border{
-            position: absolute;
             width: 2px;
             height: 100%;
-            background-color: $SELECT_BORDER_COLOR;
             top: 0;
             left: 0;
-            cursor: move;
+            @include select-box-border;
         }
         .bottom-border{
-            position: absolute;
             width: 100%;
             height: 2px;
-            background-color: $SELECT_BORDER_COLOR;
             bottom: 0;
             left: 0;
-            cursor: move;
+            @include select-box-border;
         }
         .right-border{
-            position: absolute;
             width: 2px;
             height: 100%;
-            background-color: $SELECT_BORDER_COLOR;
             top: 0;
             right: 0;
-            cursor: move;
+            @include select-box-border;
         }
         .box-selector{
             bottom: 0;
             right: 0;
-            width: 4px;
-            height: 4px;
+            width: 5px;
+            height: 5px;
+            @include select-box-border;
+        }
+        .box-editor{
             position: absolute;
-            cursor: move;
-            background-color: $SELECT_BORDER_COLOR;
+            top: 2px;
+            left: 2px;
+            input{
+                border-radius: 0;
+                outline: none;
+                font-size: 12px;
+            }
         }
     }
 }

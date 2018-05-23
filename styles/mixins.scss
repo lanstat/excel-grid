@@ -1,0 +1,6 @@
+@mixin select-box-border{
+    position: absolute;
+    background-color: $SELECT_BORDER_COLOR;
+    cursor: move;
+    z-index: 10;
+}

@@ -9,6 +9,7 @@ var classes = [
 	'../core/globals.js',
 	'../core/grid.js',
 	'../core/guide/guideRow.js',
+	'../core/guide/guideColumn.js',
 	'../core/header/headerGrid.js',
 	'../core/header/headerColumn.js',
 	'../core/header/headerRow.js',

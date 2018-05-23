@@ -44,5 +44,17 @@ module ExcelGrid{
                 $this.headerColumn.column.style.top = '-' + evt.srcElement.scrollTop + 'px';
             });
         }
+
+        public addRow(row: any[]){
+
+        }
+
+        public addRows(rows: any[][]){
+
+        }
+
+        public getRow(index: number): DataRow{
+            return Globals.DataGrid.getRow(index);
+        }
     }
 }

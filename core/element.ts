@@ -6,6 +6,7 @@ module ExcelGrid{
         private _width: number;
         private _top: number;
         private _left: number;
+        private _visible: boolean;
 
         constructor(root: HTMLElement){
             this.element = root;
@@ -73,11 +74,17 @@ module ExcelGrid{
         }
 
         public show(){
+            this._visible = true;
             this.element.style.display = 'block';
         }
 
         public hide(){
+            this._visible = false;
             this.element.style.display = 'none';
+        }
+
+        public isVisible(): boolean{
+            return this._visible;
         }
 
         public on(evt: string, callback: (data:any)=>void){

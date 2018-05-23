@@ -2,8 +2,14 @@ module ExcelGrid {
     export abstract class DataCell extends Cell {
         public isEditing: boolean;
 
-        constructor() {
+        private dataRow: DataRow;
+        private dataColumn: GuideColumn;
+
+        constructor(row: DataRow, column: GuideColumn) {
             super();
+
+            this.dataRow = row;
+            this.dataColumn = column;
 
             this.element.className = 'grid-cell';
             this.isEditing = false;
@@ -13,28 +19,14 @@ module ExcelGrid {
             super.bind();
 
             let $this = this;
-            this.element.ondblclick = function () {
-                $this.element.innerHTML = '';
-                $this.isEditing = true;
-
-                $this.element.classList.add('editing-cell');
-                let editable = $this.getEditable();
-                $this.element.appendChild(editable);
-
-                editable.focus();
-            }
 
             this.element.addEventListener('click', function(evt){
                 Globals.SelectContainer.showAtCell($this);
             });
         }
 
-        public notEditing(html: string) {
-            if (this.isEditing){
-                this.element.classList.remove('editing-cell');
-                this.element.innerHTML = html;
-                this.isEditing = false;
-            }
+        get value(): string{
+            return this.text;
         }
 
         abstract getEditable(): HTMLElement;

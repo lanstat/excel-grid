@@ -2,8 +2,8 @@ module ExcelGrid{
     export class TextCell extends DataCell{
         private input: HTMLInputElement;
 
-        constructor(){
-            super();
+        constructor(row: DataRow, column: GuideColumn){
+            super(row, column);
 
             this.input = document.createElement('input');
 
@@ -17,7 +17,7 @@ module ExcelGrid{
             let lockEvent = function(){
                 if (!disabled){
                     disabled = true;
-                    $this.notEditing($this.input.value);
+                    Globals.SelectContainer.notEditing($this.input.value);
                     setTimeout(function(){
                         disabled = false;
                     }, 100);

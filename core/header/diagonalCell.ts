@@ -1,7 +1,7 @@
 module ExcelGrid{
     export class DiagonalCell extends Cell{
         constructor(){
-            super();
+            super(0, 0);
 
             this.element.className = 'diagonal-cell';
 

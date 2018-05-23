@@ -1,8 +1,8 @@
 module ExcelGrid {
     export abstract class Row extends Element {
-        protected cells: Cell[];
+        public cells: Cell[];
 
-        constructor(count: number) {
+        constructor() {
             super(document.createElement('div'));
             this.element.className = 'grid-row';
             this.cells = [];
