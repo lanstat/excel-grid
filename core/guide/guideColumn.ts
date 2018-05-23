@@ -1,5 +1,9 @@
 module ExcelGrid {
     export class GuideColumn extends Cell {
+        public downCell: DataCell;
+        public leftCell: GuideColumn;
+        public rightCell: GuideColumn;
+
         constructor() {
             super();
 

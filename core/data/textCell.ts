@@ -2,7 +2,7 @@ module ExcelGrid{
     export class TextCell extends DataCell{
         private input: HTMLInputElement;
 
-        constructor(row: DataRow, column: GuideColumn){
+        constructor(row: HeaderCell, column: HeaderCell){
             super(row, column);
 
             this.input = document.createElement('input');

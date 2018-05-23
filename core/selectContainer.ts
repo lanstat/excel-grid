@@ -19,6 +19,8 @@ module ExcelGrid {
                 </div>
             `;
 
+            this.selectedCells = [];
+
             this.bind()
         }
 
@@ -64,7 +66,20 @@ module ExcelGrid {
             });
         }
 
+        private inactiveSelected(){
+            for(let i=0; i< this.selectedCells.length; i++){
+                if (this.selectedCells[i].row.isActive()){
+                    this.selectedCells[i].row.setActive(false);
+                }
+                if (this.selectedCells[i].column.isActive()){
+                    this.selectedCells[i].column.setActive(false);
+                }
+            }
+        }
+
         public showAtCell(cell: DataCell){
+            this.inactiveSelected();
+
             this.selectedCells = [cell];
 
             this.top = cell.offsetTop - Globals.DataScroller.scrollTop - 1;
@@ -72,7 +87,33 @@ module ExcelGrid {
             this.width = cell.offsetWidth + 1;
             this.height = cell.offsetHeight + 1;
 
+            cell.row.setActive(true);
+            cell.column.setActive(true);
+
             this.show();
+        }
+
+        public moveSingleTo(direction: number){
+            let cell = this.selectedCells[0];
+            let nextCell = null;
+            switch(direction){
+                case 0:
+                    nextCell = cell.upCell;
+                break;
+                case 1:
+                    nextCell = cell.rightCell;
+                break;
+                case 2:
+                    nextCell = cell.downCell;
+                break;
+                case 3:
+                    nextCell = cell.leftCell;
+                break;
+            }
+
+            if (nextCell){
+                this.showAtCell(nextCell);
+            }
         }
 
         public notEditing(html: string) {

@@ -5,7 +5,7 @@ module ExcelGrid {
         constructor(count: number,
                     values: string[] = null,
                     isColumnRow: boolean = false) {
-            super(count);
+            super();
 
             this.element.classList.add('header');
 

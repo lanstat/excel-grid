@@ -1,5 +1,5 @@
 module ExcelGrid {
-    export class HeaderColumn {
+    export class HeaderSide {
         public column: HTMLDivElement;
         private rows: HeaderRow[];
 
@@ -14,6 +14,10 @@ module ExcelGrid {
                 this.rows.push(row);
                 this.column.appendChild(row.element);
             }
+        }
+
+        public getRowCell(index: number): HeaderCell{
+            return this.rows[index].cells[0];
         }
     }
 }

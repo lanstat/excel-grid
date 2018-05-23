@@ -1,5 +1,5 @@
 module ExcelGrid {
-    export class HeaderGrid extends Element {
+    export class HeaderTop extends Element {
         private headerRow: HeaderRow;
 
         constructor(count: number) {
@@ -9,6 +9,10 @@ module ExcelGrid {
 
             this.headerRow = new HeaderRow(count);
             this.element.appendChild(this.headerRow.element);
+        }
+
+        public getColumnCell(index: number): HeaderCell{
+            return this.headerRow.cells[index];
         }
     }
 }

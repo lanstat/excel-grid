@@ -1,22 +1,24 @@
 module ExcelGrid {
     export class DataGrid extends Element {
-        private headerRow: GuideRow;
+        private guideRow: GuideRow;
         private rows: DataRow[];
 
-        constructor(count: number) {
+        constructor(rowCount: number, columnCount: number) {
             super(document.createElement('div'));
 
             this.element.className = 'grid-table';
 
-            this.headerRow = new GuideRow();
-            this.headerRow.initialize(count);
-            this.element.appendChild(this.headerRow.element);
+            this.rows = [];
+            this.guideRow = new GuideRow();
+            this.guideRow.initialize(columnCount);
+            this.element.appendChild(this.guideRow.element);
 
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < rowCount; i++) {
                 let tmp: DataRow = new DataRow(Math.random + '');
 
-                tmp.initialize(count, this.headerRow);
+                tmp.initialize(columnCount, i, i>0? this.rows[i - 1]: null);
 
+                this.rows.push(tmp);
                 this.element.appendChild(tmp.element);
             }
         }

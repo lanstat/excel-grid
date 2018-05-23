@@ -2,14 +2,19 @@ module ExcelGrid {
     export abstract class DataCell extends Cell {
         public isEditing: boolean;
 
-        private dataRow: DataRow;
-        private dataColumn: GuideColumn;
+        public row: HeaderCell;
+        public column: HeaderCell;
+        
+        public upCell: DataCell;
+        public leftCell: DataCell;
+        public rightCell: DataCell;
+        public downCell: DataCell;
 
-        constructor(row: DataRow, column: GuideColumn) {
+        constructor(row: HeaderCell, column: HeaderCell) {
             super();
 
-            this.dataRow = row;
-            this.dataColumn = column;
+            this.row = row;
+            this.column = column;
 
             this.element.className = 'grid-cell';
             this.isEditing = false;
